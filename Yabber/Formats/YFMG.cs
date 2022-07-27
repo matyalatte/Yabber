@@ -39,6 +39,7 @@ namespace Yabber
         {
             FMG fmg = new FMG();
             XmlDocument xml = new XmlDocument();
+            xml.PreserveWhitespace = true;
             xml.Load(sourceFile);
             Enum.TryParse(xml.SelectSingleNode("fmg/compression")?.InnerText ?? "None", out fmg.Compression);
             fmg.Version = (FMG.FMGVersion)Enum.Parse(typeof(FMG.FMGVersion), xml.SelectSingleNode("fmg/version").InnerText);
